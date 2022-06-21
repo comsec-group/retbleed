@@ -1,19 +1,22 @@
-Retbleed Artifact
+**⚠️ WARNING ⚠️: RETBleed is under responsible disclosure until July 12th. Demo
+video and code must not be shared to anyone who is not evaluating the artifact!**
+
+RETBleed Artifact
 -----------------
 
 Demo of leaking /etc/shadow contents on Intel and AMD
-https://www.youtube.com/watch?v=dmSPvJxPm80
-
+https://www.youtube.com/watch?v=dmSPvJxPm80 
 
 ## Reverse engineering
 - `./retbleed_zen/pocs/ret_bti` finds the patterns that cause BTB collisions.
 - `./retbleed_zen/pocs/cp_bti` shows that collisions happen accross.
 - `./retbleed_intel/pocs/ret_bti` shows that returns go via BTB.
-- `./retbleed_intel/pocs/cp_bti` shows that we can train accross kernel returns in user space.
+- `./retbleed_intel/pocs/cp_bti` shows that we can train accross kernel returns
+  in user space.
 
-Refer to the manuals ([AMD](./retbleed_zen/pocs/README.md), [Intel](./retbleed_intel/README.md)).
+Refer to the manuals ([AMD](./retbleed_zen/pocs), [Intel](./retbleed_intel)).
 
-- [`./rsb_depth_check`](./rsb_depth_check/README.md) shows that there is an RSB
+- [`./rsb_depth_check`](./rsb_depth_check) shows that there is an RSB
     that is used. And for Intel, it also indicates that some other prediction
     mechanism is taking place.
 - `./zen_ras_vs_btb` is illustrated in Figure 5. It shows that Return Addres
@@ -24,10 +27,10 @@ Refer to the manuals ([AMD](./retbleed_zen/pocs/README.md), [Intel](./retbleed_i
 
 Please refer to section 4.2 of the paper.
 
-1. *Detecting vulnerable returns.* We do this with `./ret_finder/funcgraph` and `./ret_finder/tools/trace_underfill.py`. Refer to the [manual](./ret_finder/README.md).
-2. *Identifying exploitable returns.* We do this in [`./ret_finder/ebpf`](./ret_finder/README.md).
-3. *Finding compatible disclosure gadgets.* We do this in [`./gadget_scanner`](./gadget_scanner/README.md)
-4. *Detecting branch history at the victim return.* We do this in [`./bhb_generate`](./bhb_generate/README.md)
+1. *Detecting vulnerable returns.* We do this with `./ret_finder/funcgraph` and `./ret_finder/tools/trace_underfill.py`. Refer to the [manual](./ret_finder).
+2. *Identifying exploitable returns.* We do this in [`./ret_finder/ebpf`](./ret_finder#ebpfmy_bpfpy-detect-controllable-input).
+3. *Finding compatible disclosure gadgets.* We do this in [`./gadget_scanner`](./gadget_scanner)
+4. *Detecting branch history at the victim return.* We do this in [`./bhb_generate`](./bhb_generate)
 
 ## Evaluation.
 
@@ -44,7 +47,7 @@ _Requires root and at least 1 huge page enabled._
 We use `./{retbleed_zen,retbleed_intel}/pocs/eval_bw`, which depend on the
 gadgets in `./{retbleed_zen,retbleed_intel}/pocs/kmod_retbleed_poc`. We run
 `eval_bw` 11 times and use the median leakage rate and accuracy. To evaluate
-Zen/+, update `PWN_PATTERN` in `eval_bw.c`.
+Zen/+, update `PWN_PATTERN` in `eval_bw.c`. 
 
 ### Leakage rate with our discovered gadgets
 
@@ -56,7 +59,8 @@ usage: ./do_retbleed.sh <kernel_text> [core_id=0] [leak_perf]
   unless leak_perf is set (to anything), try to leak /etc/shadow
 ```
 
-We run this 100 times.
+We run this 100 times and use the median leakage rate and accuracy of the runs
+that succeeded. 
 
 
 **Intel.** Go to `./retbleed_intel/exploits/`. To get kernel_text, we use MDS,
@@ -70,5 +74,5 @@ usage: ./do_retbleed.sh <kernel_text> [core_id=0] [leak_perf]
 
 ### Leaking /etc/shadow
 Same as above, but omit the last arg, `leak_perf`. As shown in the demos, we can
-multithread this to make things go a bit faster.
+parallelize it to it faster.
 

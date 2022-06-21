@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-mkdir -p output
+mkdir -p output_process_binary
 
 COMM=$(basename $1)
 ARGS=${@:2}
@@ -11,8 +11,8 @@ FG_SH=$(dirname $0)/funcgrap/fgtrace.sh
 TRACE_UF=$(dirname $0)/tools/trace_underfill.py
 BPF=$(dirname $0)/ebpf/my_bpf.py
 
-LOG_PATH="output/${COMM}_${ARGS// /-}_raw.txt"
-BTB_PATH="output/${COMM}_${ARGS// /-}_btb.txt"
+LOG_PATH="output_process_binary/${COMM}_${ARGS// /-}_raw.txt"
+BTB_PATH="output_process_binary/${COMM}_${ARGS// /-}_btb.txt"
 
 echo COMM=$COMM
 echo ARGS=$ARGS
