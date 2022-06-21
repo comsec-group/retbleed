@@ -1,0 +1,10 @@
+#cloud-config
+password: asdfqwer
+chpasswd: { expire: False }
+ssh_pwauth: True
+# ssh_authorized_keys:
+  # - ssh-rsa ...
+growpart:
+  mode: auto
+  devices: ['/']
+  ignore_growroot_disabled: false

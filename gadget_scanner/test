@@ -1,0 +1,32 @@
+#!/bin/bash
+
+make -C testcases
+
+BOLD="\e[1m"
+ENDB="\e[0m"
+ENDC="\033[0m$ENDB"
+
+OKGREEN="$BOLD\033[92m\033[7m"
+ERROR="$BOLD\033[91m\033[7m"
+
+function ok {
+  echo -e ${OKGREEN} PASS ${ENDC} ${1}
+}
+
+function er {
+  echo -e ${ERROR} FAIL ${ENDC} ${1}
+}
+
+for f in testcases/should_pass/bin/*; do
+  bn=$(basename $f)
+  >/dev/null ./gadget.py $f && ok "$bn" || er "$bn"
+done
+
+for f in testcases/should_fail/bin/*; do
+  bn=$(basename $f)
+  if >/dev/null ./gadget.py $f; then
+    er "$bn"
+  else
+    ok "$bn"
+  fi
+done
