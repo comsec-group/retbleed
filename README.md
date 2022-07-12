@@ -1,6 +1,3 @@
-**⚠️ WARNING ⚠️: RETBleed is under responsible disclosure until July 12th. Demo
-video and code must not be shared to anyone who is not evaluating the artifact!**
-
 RETBleed Artifact
 -----------------
 
