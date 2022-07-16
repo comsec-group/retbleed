@@ -125,7 +125,7 @@ int main(int argc, char *argv[])
     }
 
     for (int i = 0; i < pmu_ctx.nconfs; ++i) {
-       printf("%s;%lu\n", pmu_ctx.pmu_confs[i].name, pmu_ctx.pmu_confs[i].min);
+       fprintf(stderr, "%s;%lu\n", pmu_ctx.pmu_confs[i].name, pmu_ctx.pmu_confs[i].min);
     }
 
 
