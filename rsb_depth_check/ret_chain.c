@@ -131,7 +131,12 @@ int main(int argc, char *argv[])
 
     // INTEL
 #ifdef INTEL
-    printf("%lu\n", pmu_ctx.pmu_confs[2].min - pmu_ctx.pmu_confs[0].min - pmu_ctx.pmu_confs[1].min);
+    // sampling many perf counters is inaccurate. Sometimes there are more misp.
+    // calls and conditionals than there are misp taken branches. Could also be
+    // that a mispredicted non-taken conditional will count as a misp.cond but
+    // not as a misp taken branch.
+#define MAX(a,b) ((a) > (b) ? a : b)
+    printf("%d\n", MAX(0, (int)pmu_ctx.pmu_confs[2].min - (int)pmu_ctx.pmu_confs[0].min - (int)pmu_ctx.pmu_confs[1].min));
 #else
     // AMD
     printf("%lu\n", pmu_ctx.pmu_confs[0].min);
