@@ -77,7 +77,7 @@ void br_src_training_tmpl();
 asm(
     ".align 0x80000\n\t"
     "br_src_training_tmpl:\n\t"
-    "lfence\n\t"
+    "mfence\n\t"
 #ifdef USE_RET_TRAINING
     "push (%r8)\n\t"
     "ret\n\t"
@@ -93,7 +93,7 @@ void br_src_mispredict_tmpl();
 asm(
     ".align 0x80000\n\t"
     "br_src_mispredict_tmpl:\n\t"
-    "lfence\n\t"
+    "mfence\n\t"
 #ifdef USE_RET
     "nop\n\t" // magic ;)
     "push (%r8)\n\t"
