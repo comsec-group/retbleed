@@ -71,5 +71,5 @@ usage: ./do_retbleed.sh <kernel_text> [core_id=0] [--leak_perf]
 
 ### Leaking /etc/shadow
 Same as above, but omit the last arg, `--leak_perf`. As shown in the demos, we can
-parallelize it to it faster.
+parallelize it to make it go faster.
 
