@@ -11,13 +11,11 @@ MAX_INS_SIZE = 8
 TARGET_CHUNK_SIZE = 0x1000
 CODE_CHUNK_SIZE = 2 * TARGET_CHUNK_SIZE
 INITIAL_SOURCES = [
-            #  (x86.X86_REG_R12, (0x20, 0x70)), # REG, (min disp, max disp)
-            #  (x86.X86_REG_R12, (0x20, 0x1020)), # REG, (min disp, max disp)
-            (x86.X86_REG_R14, (0x8, 0x108)), # REG, (min disp, max disp)
-            #  (x86.X86_REG_R13, (0x8, 0x108)), # REG, (min disp, max disp)
-            #  (x86.X86_REG_R9, (0x0, 0x60)), # REG, (min disp, max disp)
-            #  (x86.X86_REG_R15, (0x0, 0x60)), # REG, (min disp, max disp)
-            #  (x86.X86_REG_RBX, (0x20, 0x100)), # REG, (min disp, max disp)
+            # using this for the end-to-end test on a vmlinux
+            #  (x86.X86_REG_R14, (0x8, 0x108)), # REG, (min disp, max disp)
+
+            # using this to run the testcases
+            (x86.X86_REG_R13, (0x8, 0x108)), # REG, (min disp, max disp)
 ]
 
 md = Cs(CS_ARCH_X86, CS_MODE_64 + CS_MODE_LITTLE_ENDIAN)
