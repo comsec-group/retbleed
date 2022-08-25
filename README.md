@@ -6,9 +6,9 @@ https://www.youtube.com/watch?v=dmSPvJxPm80
 
 ## Reverse engineering
 - `./retbleed_zen/pocs/ret_bti` finds the patterns that cause BTB collisions.
-- `./retbleed_zen/pocs/cp_bti` shows that collisions happen accross.
+- `./retbleed_zen/pocs/cp_bti` shows that collisions happen across.
 - `./retbleed_intel/pocs/ret_bti` shows that returns go via BTB.
-- `./retbleed_intel/pocs/cp_bti` shows that we can train accross kernel returns
+- `./retbleed_intel/pocs/cp_bti` shows that we can train across kernel returns
   in user space.
 
 Refer to the manuals ([AMD](./retbleed_zen/pocs), [Intel](./retbleed_intel)).
