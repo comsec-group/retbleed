@@ -30,7 +30,7 @@ with open(file_ret) as f:
             xs.append(x)
             ys.append(y)
         ax.plot(xs, ys, label="return")
-        ax.set_xlim(left=0, right=29)
+        ax.set_xlim(left=0, right=35)
 
         xs = []
         ys = []
@@ -41,9 +41,9 @@ with open(file_ret) as f:
             xs.append(x)
             ys.append(y)
         ax.plot(xs, ys, label="indirect branch")
-        ax.set_xlim(left=0, right=29)
+        ax.set_xlim(left=0, right=35)
 ax.grid()
-ax.axvline(x=16, color='0.3', linestyle='--', label="RSB capacity");
+ax.axvline(x=16, color='0.3', linestyle='--', label="Intel RSB capacity");
 ax.legend()
 xlabel =ax.set_xlabel('# branches')
 ylabel = ax.set_ylabel("mispredictions")
