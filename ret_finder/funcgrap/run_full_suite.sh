@@ -20,7 +20,7 @@ RUN_TESTS_FILE="$LTP_ROOT/runtest/syscalls"
 # need to stand here to run..
 cd "$LTP_ROOT/testcases/bin"
 
-grep . $RUN_TEST_FILE | grep -v '#' | grep -vE 'msgstress0[1-4]' | sed -E 's/\s+/ /g' | while read L; do
+grep . $RUN_TESTS_FILE | grep -v '#' | grep -vE 'msgstress0[1-4]' | sed -E 's/\s+/ /g' | while read L; do
 	name="$(echo $L | cut -d' ' -f1).txt"
 	cmdline="./$(echo $L | cut -d' ' -f2-)"
 	echo "$name..."
