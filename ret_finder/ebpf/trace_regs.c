@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-3.0-only
 #if defined(CONFIG_FUNCTION_TRACER)
 #define CC_USING_FENTRY
 #endif

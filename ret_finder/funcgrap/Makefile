@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-only
 CFLAGS += -O3
 CFLAGS += -Wall
 CFLAGS += -Wextra

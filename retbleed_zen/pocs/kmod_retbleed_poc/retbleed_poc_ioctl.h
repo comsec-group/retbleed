@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-3.0-only
 #define PROC_RETBLEED_POC "retbleed_poc"
 
 #define REQ_GADGET    222

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-only
 #!/bin/bash
 # This script is executed from ./funcgrap
 

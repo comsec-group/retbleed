@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-3.0-only
 #include <err.h>
 #include <setjmp.h>
 #include <signal.h>

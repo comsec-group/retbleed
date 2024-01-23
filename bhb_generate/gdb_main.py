@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-only
 import gdb
 
 KB_base = 0xffffffff81000000

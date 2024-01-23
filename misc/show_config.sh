@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-only
 #!/bin/bash
 set -x
 grep -m1 model\ name /proc/cpuinfo
