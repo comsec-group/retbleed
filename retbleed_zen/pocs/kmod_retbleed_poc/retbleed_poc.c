@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-3.0-only
 #include <linux/fs.h>
 #include "linux/sysctl.h"
 #include <linux/kernel.h>

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-only
 CC=gcc
 mod-name := retbleed_poc
 obj-m += $(mod-name).o

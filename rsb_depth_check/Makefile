@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-only
 CC := clang
 OBJS := pmu.o
 CFLAGS += -O0

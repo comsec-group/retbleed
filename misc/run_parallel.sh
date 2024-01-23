@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-only
 #!/bin/bash
 CORES=( $(grep core\ id /proc/cpuinfo | sort | uniq | cut -d: -f2 | bc) )
 

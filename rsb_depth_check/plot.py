@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-only
 import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker

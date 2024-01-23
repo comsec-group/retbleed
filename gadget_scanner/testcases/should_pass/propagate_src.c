@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-3.0-only
 int main(int argc, char *argv[])
 {
     asm volatile("mov %r13, %r11");

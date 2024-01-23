@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-3.0-only
 // leak secret before dereferencing rb
 int main(int argc, char *argv[])
 {

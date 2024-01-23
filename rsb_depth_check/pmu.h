@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-3.0-only
 #include <linux/perf_event.h>
 #include <linux/hw_breakpoint.h>
 #include <string.h>
